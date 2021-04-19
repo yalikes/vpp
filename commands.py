@@ -15,3 +15,7 @@ def init_command(args: argparse.Namespace):
         "author": ""
     }
     write_vvp_toml_file(config, project_config_file)
+
+
+def add_command(args: argparse.Namespace):
+    pass
