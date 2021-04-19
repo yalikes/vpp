@@ -12,5 +12,6 @@ def init_command(args: argparse.Namespace):
         exit(-1)
     config = {
         "version": "0.1.0",
-        "modules": []
+        "author": ""
     }
+    write_vvp_toml_file(config, project_config_file)
