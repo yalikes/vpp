@@ -1,8 +1,16 @@
-import tomlkit
 import argparse
 from pathlib import Path
 from vvplib.utils.utils import check_file_exists
+from vvplib.vppconf.conf import write_vvp_toml_file
+from vvplib.constants import PROJECT_CONFIG_FILE_NAME, VERSION
+
+
 def init_command(args: argparse.Namespace):
-    project_file = Path("./Vvp.toml")
-    if check_file_exists(project_file):
-        pass
+    project_config_file = Path("./", PROJECT_CONFIG_FILE_NAME)
+    if check_file_exists(project_config_file):
+        print("error, Vvp.toml alread exists! exit.")
+        exit(-1)
+    config = {
+        "version": "0.1.0",
+        "modules": []
+    }
