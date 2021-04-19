@@ -9,6 +9,8 @@ def main():
         init_command(args)
     elif args.sub_command_name == "add":
         add_command(args)
+    elif args.sub_command_name == "generate" or args.sub_command_name == "g":
+        pass
 
 
 if __name__ == "__main__":
