@@ -1,4 +1,5 @@
 import argparse
+from tomlkit import document
 from pathlib import Path
 from vpplib.utils.utils import check_file_exists, recursive_find_file
 from vpplib.vppconf.conf import read_vvp_toml_file, write_vvp_toml_file
@@ -11,11 +12,14 @@ def init_command(args: argparse.Namespace):
         print(f"error, {PROJECT_CONFIG_FILE_NAME} alread exists! exit.")
         exit(-1)
     # basic config file here
+    config_document = document()
     config = {
         "version": "0.1.0",
         "author": ""
     }
-    write_vvp_toml_file(config, project_config_file)
+    for k in config:
+        config_document.add(k, config[k])
+    write_vvp_toml_file(config_document, project_config_file)
 
 
 def add_command(args: argparse.Namespace):
@@ -25,7 +29,6 @@ def add_command(args: argparse.Namespace):
         print(
             f"error, {PROJECT_CONFIG_FILE_NAME} is not exists, this is not a vpp project directory")
         exit(-1)
-    config = read_vvp_toml_file(config_file_path)
+    config_document = read_vvp_toml_file(config_file_path)
     module_name = args.module_name
-    
     
