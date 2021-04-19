@@ -1,8 +1,8 @@
 import argparse
 from pathlib import Path
-from vvplib.utils.utils import check_file_exists
-from vvplib.vppconf.conf import write_vvp_toml_file
-from vvplib.constants import PROJECT_CONFIG_FILE_NAME, VERSION
+from vpplib.utils.utils import check_file_exists
+from vpplib.vppconf.conf import write_vvp_toml_file
+from vpplib.constants import PROJECT_CONFIG_FILE_NAME, VERSION
 
 
 def init_command(args: argparse.Namespace):
