@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "vvp"
 version = "0.1.0"
-description = ""
+description = "a tool that help you manage your verilog moduels"
 authors = ["paohui <2054453988@qq.com>"]
 license = "MIT"
 
