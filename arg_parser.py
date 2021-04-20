@@ -13,12 +13,12 @@ def parser_arg() -> argparse.Namespace:
     generate_parser.add_argument("module_name", type=str,
                                  help="module name to be generated.")
     generate_parser.add_argument(
-        "--notest", "-n", help="if this flag is set, then no test bench will be created.")
+        "--notest", "-n", action="store_true", help="if this flag is set, then no test bench will be created.")
     add_parser = sub_parser.add_parser("add", help="add module to project.")
     add_parser.add_argument("module_name", type=str,
                             help="module name to be added.")
     add_parser.add_argument(
-        "--deps",nargs="+" ,type=str, help="module names that this module depends.")
+        "--deps", nargs="+", type=str, help="module names that this module depends.")
 
     args = parser.parse_args()
     return args

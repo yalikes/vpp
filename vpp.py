@@ -1,5 +1,5 @@
 from arg_parser import parser_arg
-from commands import init_command, add_command
+from commands import generate_command, init_command, add_command
 
 
 def main():
@@ -10,7 +10,7 @@ def main():
     elif args.sub_command_name == "add":
         add_command(args)
     elif args.sub_command_name == "generate" or args.sub_command_name == "g":
-        pass
+        generate_command(args)
 
 
 if __name__ == "__main__":
