@@ -1,6 +1,6 @@
-from logging import root
 from pathlib import Path
 from typing import Tuple, Union
+from ..constants import PROJECT_CONFIG_FILE_NAME
 
 
 def check_file_exists(filename: Union[str, Path]) -> bool:
@@ -21,3 +21,8 @@ def recursive_find_file(filename: Union[str, Path]) -> Tuple[bool, Path]:
         if check_file_exists(current_path_dir/name):
             return (True, current_path_dir/name)
     return (False, filename)
+
+
+def get_project_root() -> Tuple[bool, Path]:
+    (exists, root_config_file) = recursive_find_file(PROJECT_CONFIG_FILE_NAME)
+    return (exists, root_config_file.parent)

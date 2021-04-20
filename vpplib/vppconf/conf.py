@@ -19,7 +19,7 @@ def read_vvp_toml_file(path: Union[str, Path]) -> dict:
 
 
 def write_json_file(data: dict, path: Union[str, Path]):
-    content = json.dumps(data)
+    content = json.dumps(data, indent=4, sort_keys=True)
     file_path = Path(path)
     file_path.write_text(content)
 
