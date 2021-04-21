@@ -4,12 +4,11 @@ from vpplib.utils.utils import check_file_exists, recursive_find_file
 from vpplib.vppconf.conf import read_vvp_toml_file, write_vvp_toml_file, read_json_file, write_json_file
 from vpplib.constants import (
     PROJECT_CONFIG_FILE_NAME, VPP_DESC_FILE,
-    MODULE_TEMPLATE, TEST_MODULE_TEMPLATE,
     MODULE_NAME_PLACEHOLDER,
     TEST_MODULE_NAME_PLACEHOLDER
 )
 from vpplib.vppconf.file_item import ModuleFile
-from vpplib.routines import add_module_file_to_desc_file
+from vpplib.routines import add_module_file_to_desc_file, read_module_template, read_test_module_template
 
 
 def init_command(args: argparse.Namespace):
@@ -52,11 +51,11 @@ def generate_command(args: argparse.Namespace):
     test_module_file_name = test_module_name+".v"  # get module files name
 
     # module_content
-    module_content = MODULE_TEMPLATE.replace(
+    module_content = read_module_template().replace(
         MODULE_NAME_PLACEHOLDER, module_name)
 
     # test module content
-    test_module_content = TEST_MODULE_TEMPLATE.replace(
+    test_module_content = read_test_module_template().replace(
         TEST_MODULE_NAME_PLACEHOLDER, test_module_name).replace(
             MODULE_NAME_PLACEHOLDER, module_name)
     # write module file
