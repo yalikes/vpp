@@ -34,10 +34,12 @@ def generate_sconstruct_file():
 
 
 def read_module_template() -> str:
-    module_template_file = Path(__file__).parent/"templates"/MODULE_TEMPLATE_FILE_NAME
+    module_template_file = Path(__file__).parent / \
+        "templates"/MODULE_TEMPLATE_FILE_NAME
     return module_template_file.read_text()
 
 
 def read_test_module_template() -> str:
-    test_module_template_file = Path(__file__).parent/"templates"/TEST_MODULE_TEMPLATE_FILE_NAME
+    test_module_template_file = Path(
+        __file__).parent/"templates"/TEST_MODULE_TEMPLATE_FILE_NAME
     return test_module_template_file.read_text()
