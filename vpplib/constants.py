@@ -17,7 +17,7 @@ MODULE_NAME_PLACEHOLDER="moduleNamePlaceholder"
 
 TEST_MODULE_TEMPLATE = """`timescale 1ps/1ps
 module testModulePlaceholder ();
-sub_module moduleNamePlaceholder_instance(
+moduleNamePlaceholder moduleNamePlaceholder_instance(
 );
 reg clk;
 
